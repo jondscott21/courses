@@ -20,14 +20,17 @@
             <th>Description</th>
             <th>Date Added</th>
             <th>Actions</th>
+            <th>Comments</th>
         </tr>
         {% for course in courses %}
         <tr>
         <td>{{ course.course_name }}</td>
-        <td>{{ course.description }}</td>
+        <td>{{ course.course_id.description }}</td>
         <td>{{ course.date_added }}</td>
-            <td><form action="/course/destroy/{{ course.id }}" method="get"><input type="submit" value="remove"></form></td>
+        <td><form action="/course/destroy/{{ course.id }}" method="get"><input type="submit" value="remove"></form></td>
+        <td><form action="/comments/{{ course.id }}" method="get"><input type="submit" value="Comment"></form></td>
         </tr>
+
         {% endfor %}
     </table>
 </body>

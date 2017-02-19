@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" type="text/css" href="">
+    <title>Comments</title>
+</head>
+<body>
+<h1>{{ course.course_name }} {{ course.course_id.description }}</h1>
+{% for comment in comments %}
+    <p>{{ comment.comment }}</p>
+    {% endfor %}
+<form action="/process2/{{ course.id }}" method="post">
+     {% csrf_token %}
+    <textarea name="comment" cols="70" rows="7" placeholder="Comment"></textarea>
+    <input type="submit" value="Submit">
+
+</form>
+</body>
+</html>
